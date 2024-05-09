@@ -212,6 +212,7 @@ int      do_auto_pause                          = 0;              /* (C) Auto-pa
 int      hook_enabled                           = 1;              /* (C) Keyboard hook is enabled */
 int      test_mode                              = 0;              /* (C) Test mode */
 char     uuid[MAX_UUID_LEN]                     = { '\0' };       /* (C) UUID or machine identifier */
+char     release_shortcut[MAX_KEYBOARD_SHORTCUT_LEN] = { '\0' };  /* (C) Portable text representation of the keyboard shortcut */
 
 int      other_ide_present = 0;                                   /* IDE controllers from non-IDE cards are
                                                                      present */
