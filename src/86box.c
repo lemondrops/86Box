@@ -214,6 +214,7 @@ int      hook_enabled                           = 1;              /* (C) Keyboar
 int      test_mode                              = 0;              /* (C) Test mode */
 char     uuid[MAX_UUID_LEN]                     = { '\0' };       /* (C) UUID or machine identifier */
 int      sound_muted                            = 0;              /* (C) Is sound muted? */
+char     release_shortcut[MAX_KEYBOARD_SHORTCUT_LEN] = { '\0' };  /* (C) Portable text representation of the keyboard shortcut */
 
 int      other_ide_present = 0;                                   /* IDE controllers from non-IDE cards are
                                                                      present */
