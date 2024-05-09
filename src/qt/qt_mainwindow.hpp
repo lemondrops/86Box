@@ -33,6 +33,7 @@ public:
     void  setSendKeyboardInput(bool enabled);
     void  checkFullscreenHotkey();
     void  reloadAllRenderers();
+    void setKeyboardShortcuts();
 
     std::array<std::unique_ptr<RendererStack>, 8> renderers;
 signals:
@@ -176,6 +177,9 @@ private:
 
     /* Reload the renderers after closing renderer options dialog. */
     bool reload_renderers    = false;
+
+    /* Stored connections for keyboard shortcuts */
+    QMetaObject::Connection releaseShortcutConnection;
 
     friend class SpecifyDimensions;
     friend class ProgSettings;

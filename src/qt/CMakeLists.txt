@@ -184,6 +184,9 @@ add_library(ui STATIC
     qt_mediahistorymanager.cpp
     qt_mediahistorymanager.hpp
 
+    qt_shortcuts.cpp
+    qt_shortcuts.hpp
+
     ../qt_resources.qrc
     ./qdarkstyle/dark/darkstyle.qrc
 
