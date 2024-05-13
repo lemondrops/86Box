@@ -46,6 +46,9 @@
     <qresource prefix="/misc">
         <file>qt/icons/warning.ico</file>
     </qresource>
+    <qresource prefix="/json">
+        <file alias="hdd_presets.json">qt/json/hdd_presets.json</file>
+    </qresource>
     <qresource prefix="/">
         <file alias="/texture_vert.spv">qt/texture_vert.spv</file>
         <file alias="/texture_frag.spv">qt/texture_frag.spv</file>
