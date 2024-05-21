@@ -324,6 +324,9 @@ msgstr "Pojačavanje"
 msgid "File name:"
 msgstr "Ime datoteke:"
 
+msgid "File name"
+msgstr "Ime datoteke"
+
 msgid "Disk size:"
 msgstr "Veličina diska:"
 
@@ -575,6 +578,9 @@ msgstr "Cilindri:"
 
 msgid "Size (MB):"
 msgstr "Veličina (MB):"
+
+msgid "Size"
+msgstr "Veličina"
 
 msgid "Type:"
 msgstr "Tip:"
