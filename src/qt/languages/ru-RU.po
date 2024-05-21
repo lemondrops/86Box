@@ -324,6 +324,9 @@ msgstr "Усиление"
 msgid "File name:"
 msgstr "Имя файла:"
 
+msgid "File name"
+msgstr "Имя файла"
+
 msgid "Disk size:"
 msgstr "Размер диска:"
 
@@ -575,6 +578,9 @@ msgstr "Цилиндры:"
 
 msgid "Size (MB):"
 msgstr "Размер (МБ):"
+
+msgid "Size"
+msgstr "Размер"
 
 msgid "Type:"
 msgstr "Тип:"

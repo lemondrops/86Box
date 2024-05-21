@@ -324,6 +324,9 @@ msgstr "Taso"
 msgid "File name:"
 msgstr "Tiedostonimi:"
 
+msgid "File name"
+msgstr "Tiedostonimi"
+
 msgid "Disk size:"
 msgstr "Levyn koko:"
 
@@ -575,6 +578,9 @@ msgstr "Sylinterit:"
 
 msgid "Size (MB):"
 msgstr "Koko (Mt):"
+
+msgid "Size"
+msgstr "Koko"
 
 msgid "Type:"
 msgstr "Tyyppi:"
