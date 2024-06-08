@@ -2148,6 +2148,7 @@ MainWindow::updateUiPauseState()
                                     QString(tr("Pause execution"));
     ui->actionPause->setIcon(pause_icon);
     ui->actionPause->setToolTip(tooltip_text);
+    emit vmmRunningStateChanged(static_cast<VMManagerProtocol::RunningState>(dopause));
 }
 
 void
