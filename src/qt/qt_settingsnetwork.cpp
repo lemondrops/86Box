@@ -35,25 +35,118 @@ SettingsNetwork::enableElements(Ui::SettingsNetwork *ui)
     for (int i = 0; i < NET_CARD_MAX; ++i) {
         auto *nic_cbox      = findChild<QComboBox *>(QString("comboBoxNIC%1").arg(i + 1));
         auto *net_type_cbox = findChild<QComboBox *>(QString("comboBoxNet%1").arg(i + 1));
+
+        auto *intf_label    = findChild<QLabel *>(QString("interfaceLabel%1").arg(i + 1));
         auto *intf_cbox     = findChild<QComboBox *>(QString("comboBoxIntf%1").arg(i + 1));
+
         auto *conf_btn      = findChild<QPushButton *>(QString("pushButtonConf%1").arg(i + 1));
+//        auto *net_type_conf_btn      = findChild<QPushButton *>(QString("pushButtonNetTypeConf%1").arg(i + 1));
+
+        auto *vde_socket_label = findChild<QLabel *>(QString("socketVDELabel%1").arg(i + 1));
         auto *socket_line   = findChild<QLineEdit *>(QString("socketVDENIC%1").arg(i + 1));
 
-        int  netType         = net_type_cbox->currentData().toInt();
-        bool adaptersEnabled =  netType == NET_TYPE_NONE
-                            ||  netType == NET_TYPE_SLIRP
-                            ||  netType == NET_TYPE_VDE
-                            || (netType == NET_TYPE_PCAP && intf_cbox->currentData().toInt() > 0);
+        auto *option_list_label = findChild<QLabel *>(QString("optionListLabel%1").arg(i + 1));
+        auto *option_list_line = findChild<QWidget *>(QString("optionListLine%1").arg(i + 1));
+
+        // Switch group
+        auto *switch_group_label = findChild<QLabel *>(QString("switchLabel%1").arg(i + 1));
+//        auto *switch_group_hlayout = findChild<QHBoxLayout *>(QString("switchHLayout%1").arg(i + 1));
+//        auto *switch_group_hspacer = findChild<QWidget *>(QString("switchSpacer%1").arg(i + 1));
+        auto *switch_group_value = findChild<QSpinBox *>(QString("switchSpinner%1").arg(i + 1));
+        switch_group_value->setMinimum(1);
+        switch_group_value->setMaximum(10);
+
+        // Promiscuous option
+        auto *promisc_label  = findChild<QLabel *>(QString("promiscLabel%1").arg(i + 1));
+        auto *promisc_value = findChild<QCheckBox *>(QString("promiscBox%1").arg(i + 1));
+
+        // Remote switch hostname
+        auto *hostname_label = findChild<QLabel *>(QString("hostnameLabel%1").arg(i + 1));
+        auto *hostname_value = findChild<QLineEdit *>(QString("switchHostname%1").arg(i + 1));
 
         intf_cbox->setEnabled(net_type_cbox->currentData().toInt() == NET_TYPE_PCAP);
-        nic_cbox->setEnabled(adaptersEnabled);
-        int netCard = nic_cbox->currentData().toInt();
-        if ((i == 0) && (netCard == NET_INTERNAL))
-            conf_btn->setEnabled(adaptersEnabled && machine_has_flags(machineId, MACHINE_NIC) &&
-                                 device_has_config(machine_get_net_device(machineId)));
-        else
-            conf_btn->setEnabled(adaptersEnabled && network_card_has_config(nic_cbox->currentData().toInt()));
-        socket_line->setEnabled(net_type_cbox->currentData().toInt() == NET_TYPE_VDE);
+        conf_btn->setEnabled(network_card_has_config(nic_cbox->currentData().toInt()));
+//        net_type_conf_btn->setEnabled(network_type_has_config(netType));
+
+        // NEW STUFF
+        // Make all options invisible by default
+
+        // Switch group
+        switch_group_label->setVisible(false);
+        switch_group_value->setVisible(false);
+//        switch_group_hspacer->setVisible(false);
+
+        // Promiscuous options
+        promisc_label->setVisible(false);
+        promisc_value->setVisible(false);
+
+        // Hostname
+        hostname_label->setVisible(false);
+        hostname_value->setVisible(false);
+
+        // Option list label and line
+        option_list_label->setVisible(false);
+        option_list_line->setVisible(false);
+
+
+        // VDE
+        vde_socket_label->setVisible(false);
+        socket_line->setVisible(false);
+
+        // PCAP
+        intf_cbox->setVisible(false);
+        intf_label->setVisible(false);
+
+        // Don't enable anything unless there's a nic selected
+        if(nic_cbox->currentData().toInt() != 0) {
+            // Then only enable as needed based on network type
+            switch (net_type_cbox->currentData().toInt()) {
+                case NET_TYPE_VDE:
+                    //                option_list_label->setText("VDE Options");
+                    option_list_label->setVisible(true);
+                    option_list_line->setVisible(true);
+
+                    vde_socket_label->setVisible(true);
+                    socket_line->setVisible(true);
+                    break;
+                case NET_TYPE_PCAP:
+                    //                option_list_label->setText("PCAP Options");
+                    option_list_label->setVisible(true);
+                    option_list_line->setVisible(true);
+
+                    intf_cbox->setVisible(true);
+                    intf_label->setVisible(true);
+                    break;
+                case NET_TYPE_NMSWITCH:
+                    //                option_list_label->setText("Local Switch Options");
+                    option_list_label->setVisible(true);
+                    option_list_line->setVisible(true);
+
+                    // Switch group
+                    switch_group_label->setVisible(true);
+                    switch_group_value->setVisible(true);
+                    //        switch_group_hspacer->setVisible(false);
+
+                    // Promiscuous options
+                    promisc_label->setVisible(true);
+                    promisc_value->setVisible(true);
+                    break;
+                case NET_TYPE_NRSWITCH:
+                    //                option_list_label->setText("Remote Switch Options");
+                    option_list_label->setVisible(true);
+                    option_list_line->setVisible(true);
+
+                    // Switch group
+                    switch_group_label->setVisible(true);
+                    switch_group_value->setVisible(true);
+                    //        switch_group_hspacer->setVisible(false);
+
+                    // Hostname
+                    hostname_label->setVisible(true);
+                    hostname_value->setVisible(true);
+                    break;
+            }
+        }
     }
 }
 
@@ -90,11 +183,22 @@ SettingsNetwork::save()
         cbox                         = findChild<QComboBox *>(QString("comboBoxNet%1").arg(i + 1));
         net_cards_conf[i].net_type   = cbox->currentData().toInt();
         cbox                         = findChild<QComboBox *>(QString("comboBoxIntf%1").arg(i + 1));
+        auto *hostname_value = findChild<QLineEdit *>(QString("switchHostname%1").arg(i + 1));
+        auto *promisc_value = findChild<QCheckBox *>(QString("promiscBox%1").arg(i + 1));
+        auto *switch_group_value = findChild<QSpinBox *>(QString("switchSpinner%1").arg(i + 1));
         memset(net_cards_conf[i].host_dev_name, '\0', sizeof(net_cards_conf[i].host_dev_name));
         if (net_cards_conf[i].net_type == NET_TYPE_PCAP) {
             strncpy(net_cards_conf[i].host_dev_name, network_devs[cbox->currentData().toInt()].device, sizeof(net_cards_conf[i].host_dev_name) - 1);
         } else if (net_cards_conf[i].net_type == NET_TYPE_VDE) {
             strncpy(net_cards_conf[i].host_dev_name, socket_line->text().toUtf8().constData(), sizeof(net_cards_conf[i].host_dev_name));
+        }
+        if (net_cards_conf[i].net_type == NET_TYPE_NRSWITCH) {
+            memset(net_cards_conf[i].nrs_hostname, '\0', sizeof(net_cards_conf[i].nrs_hostname));
+            strncpy(net_cards_conf[i].nrs_hostname, hostname_value->text().toUtf8().constData(), sizeof(net_cards_conf[i].nrs_hostname) - 1);
+            net_cards_conf[i].switch_group = switch_group_value->value() - 1;
+        } else if (net_cards_conf[i].net_type == NET_TYPE_NMSWITCH) {
+            net_cards_conf[i].promisc_mode = promisc_value->isChecked();
+            net_cards_conf[i].switch_group = switch_group_value->value() - 1;
         }
     }
 }
@@ -152,9 +256,13 @@ SettingsNetwork::onCurrentMachineChanged(int machineId)
         if (network_devmap.has_vde) {
             Models::AddEntry(model, "VDE", NET_TYPE_VDE);
         }
-        
+        Models::AddEntry(model, "Local Switch", NET_TYPE_NMSWITCH);
+#ifdef ENABLE_NET_NRSWITCH
+        Models::AddEntry(model, "Remote Switch", NET_TYPE_NRSWITCH);
+#endif
+
         model->removeRows(0, removeRows);
-        cbox->setCurrentIndex(net_cards_conf[i].net_type);
+        cbox->setCurrentIndex(cbox->findData(net_cards_conf[i].net_type));
 
         selectedRow = 0;
 
@@ -176,6 +284,18 @@ SettingsNetwork::onCurrentMachineChanged(int machineId)
             QString currentVdeSocket = net_cards_conf[i].host_dev_name;
             auto editline = findChild<QLineEdit *>(QString("socketVDENIC%1").arg(i+1));
             editline->setText(currentVdeSocket);
+        }
+        if (net_cards_conf[i].net_type == NET_TYPE_NMSWITCH) {
+            auto *promisc_value = findChild<QCheckBox *>(QString("promiscBox%1").arg(i + 1));
+            promisc_value->setCheckState(net_cards_conf[i].promisc_mode == 1 ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+            auto *switch_group_value = findChild<QSpinBox *>(QString("switchSpinner%1").arg(i + 1));
+            switch_group_value->setValue(net_cards_conf[i].switch_group + 1);
+        }
+        if (net_cards_conf[i].net_type == NET_TYPE_NRSWITCH) {
+            auto *hostname_value = findChild<QLineEdit *>(QString("switchHostname%1").arg(i + 1));
+            hostname_value->setText(net_cards_conf[i].nrs_hostname);
+            auto *switch_group_value = findChild<QSpinBox *>(QString("switchSpinner%1").arg(i + 1));
+            switch_group_value->setValue(net_cards_conf[i].switch_group + 1);
         }
     }
 }
