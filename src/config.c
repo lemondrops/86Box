@@ -656,6 +656,10 @@ load_network(void)
                 nc->net_type = NET_TYPE_SLIRP;
             else if (!strcmp(p, "vde") || !strcmp(p, "2"))
                 nc->net_type = NET_TYPE_VDE;
+            else if (!strcmp(p, "nmswitch") || !strcmp(p, "2"))
+                nc->net_type = NET_TYPE_NMSWITCH;
+            else if (!strcmp(p, "nrswitch"))
+                nc->net_type = NET_TYPE_NRSWITCH;
             else
                 nc->net_type = NET_TYPE_NONE;
         } else
@@ -696,16 +700,22 @@ load_network(void)
         sprintf(temp, "net_%02i_net_type", c + 1);
         p = ini_section_get_string(cat, temp, NULL);
         if (p != NULL) {
-            if (!strcmp(p, "pcap") || !strcmp(p, "1"))
+            if (!strcmp(p, "pcap") || !strcmp(p, "1")) {
                 nc->net_type = NET_TYPE_PCAP;
-            else if (!strcmp(p, "slirp") || !strcmp(p, "2"))
+            } else if (!strcmp(p, "slirp") || !strcmp(p, "2")) {
                 nc->net_type = NET_TYPE_SLIRP;
-            else if (!strcmp(p, "vde") || !strcmp(p, "2"))
+            } else if (!strcmp(p, "vde") || !strcmp(p, "2")) {
                 nc->net_type = NET_TYPE_VDE;
-            else
+            } else if (!strcmp(p, "nmswitch") || !strcmp(p, "2")) {
+                nc->net_type = NET_TYPE_NMSWITCH;}
+            else if (!strcmp(p, "nrswitch") || !strcmp(p, "2")) {
+                nc->net_type = NET_TYPE_NRSWITCH;
+            } else {
                 nc->net_type = NET_TYPE_NONE;
-        } else
+            }
+        } else {
             nc->net_type = NET_TYPE_NONE;
+        }
 
         sprintf(temp, "net_%02i_host_device", c + 1);
         p = ini_section_get_string(cat, temp, NULL);
@@ -723,6 +733,20 @@ load_network(void)
                 strncpy(nc->host_dev_name, p, sizeof(nc->host_dev_name) - 1);
         } else
             strcpy(nc->host_dev_name, "none");
+
+         sprintf(temp, "net_%02i_switch_group", c + 1);
+         net_cards_conf[c].switch_group = ini_section_get_int(cat, temp, 0);
+
+         sprintf(temp, "net_%02i_promisc", c + 1);
+         net_cards_conf[c].promisc_mode = ini_section_get_int(cat, temp, 0);
+
+         sprintf(temp, "net_%02i_nrs_host", c + 1);
+         p = ini_section_get_string(cat, temp, NULL);
+         if (p != NULL) {
+            strncpy(net_cards_conf[c].nrs_hostname, p, sizeof(net_cards_conf[c].nrs_hostname) - 1);
+         } else {
+            strncpy(net_cards_conf[c].nrs_hostname, "", sizeof(net_cards_conf[c].nrs_hostname) - 1);
+         }
 
         sprintf(temp, "net_%02i_link", c + 1);
         nc->link_state = ini_section_get_int(cat, temp,
@@ -2341,7 +2365,12 @@ save_network(void)
             case NET_TYPE_VDE:
                 ini_section_set_string(cat, temp, "vde");
                 break;
-
+            case NET_TYPE_NMSWITCH:
+                ini_section_set_string(cat, temp, "nmswitch");
+                break;
+            case NET_TYPE_NRSWITCH:
+                ini_section_set_string(cat, temp, "nrswitch");
+                break;
             default:
                 break;
         }
@@ -2362,6 +2391,32 @@ save_network(void)
             ini_section_delete_var(cat, temp);
         else
             ini_section_set_int(cat, temp, nc->link_state);
+
+        // IF TYPE IS SWITCH
+        sprintf(temp, "net_%02i_switch_group", c + 1);
+        if (nc->device_num == 0) {
+            ini_section_delete_var(cat, temp);
+        } else {
+            ini_section_set_int(cat, temp, net_cards_conf[c].switch_group);
+        }
+
+        sprintf(temp, "net_%02i_promisc", c + 1);
+        if (nc->device_num == 0) {
+            ini_section_delete_var(cat, temp);
+        } else {
+            ini_section_set_int(cat, temp, net_cards_conf[c].promisc_mode);
+        }
+
+        sprintf(temp, "net_%02i_nrs_host", c + 1);
+        if (nc->device_num == 0) {
+            ini_section_delete_var(cat, temp);
+        } else {
+            if (nc->nrs_hostname[0] != '\0') {
+                ini_section_set_string(cat, temp, net_cards_conf[c].nrs_hostname);
+            } else {
+                ini_section_delete_var(cat, temp);
+            }
+        }
     }
 
     ini_delete_section_if_empty(config, cat);
