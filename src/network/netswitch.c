@@ -284,6 +284,10 @@ ns_open(struct ns_open_args *open_args) {
         conn->client_state = LOCAL;
     }
 
+    /* Initialize sequence numbers */
+    conn->sequence = 1;
+    conn->remote_sequence = 1;
+
     /* Initialize stats */
     conn->stats.max_tx_frame = 0;
     conn->stats.max_tx_packet = 0;
@@ -360,6 +364,8 @@ ns_send_pb(NSCONN *conn, const netpkt_t *packet,int flags) {
 
     /* Loop here for each fragment. Send each fragment. In the even that the packet is *not* a fragment (regular data packet)
      * this will only execute once. */
+    const uint32_t fragment_sequence = conn->sequence;
+    const int64_t  packet_timestamp  = ns_get_current_millis();
     for (uint8_t fragment_index = 0; fragment_index < fragment_count; fragment_index++) {
         uint8_t buffer[NET_SWITCH_BUFFER_LENGTH];
         pb_ostream_t stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
@@ -371,13 +377,13 @@ ns_send_pb(NSCONN *conn, const netpkt_t *packet,int flags) {
         /* Single frame is type DATA, fragments are FRAGMENT */
         network_message.message_type = fragment_count > 1 ? MessageType_MESSAGE_TYPE_FRAGMENT : MessageType_MESSAGE_TYPE_DATA;
         network_message.client_id = conn->client_id;
-        network_message.timestamp = ns_get_current_millis();
+        network_message.timestamp = packet_timestamp;
         network_message.version = conn->version;
 
         /* Need some additional data if we're a fragment */
         if(fragment_count > 1) {
             network_message.fragment.total = fragment_count;
-            network_message.fragment.id = conn->sequence;
+            network_message.fragment.id = fragment_sequence;
             network_message.fragment.sequence = fragment_index + 1;
             network_message.has_fragment = true;
         }
@@ -452,6 +458,9 @@ ns_send_pb(NSCONN *conn, const netpkt_t *packet,int flags) {
         }
         conn->stats.total_tx_packets++;
         memcpy(conn->stats.last_tx_ethertype, &packet->data[12], 2);
+
+        /* Increment the sequence number */
+        seq_increment(conn);
 
         /* nanopb will free all the allocated entries for us */
         pb_release(NetworkMessage_fields, &network_message);
@@ -611,7 +620,7 @@ ns_recv_pb(NSCONN *conn, ns_rx_packet_t *packet,size_t len,int flags) {
     memcpy(ns_packet->mac, network_message.mac->bytes, PB_MAC_ADDR_SIZE);
     ns_packet->timestamp    = network_message.timestamp;
     ns_packet->version      = network_message.version;
-    conn->sequence          = network_message.sequence;
+    conn->remote_sequence   = network_message.sequence;
     conn->last_packet_stamp = network_message.timestamp;
 
     /* Control messages take a different path */
@@ -732,7 +741,8 @@ ns_send_control(NSCONN *conn, const MessageType type) {
     memcpy(network_message.mac->bytes, conn->mac_addr, PB_MAC_ADDR_SIZE);
 
     network_message.timestamp = ns_get_current_millis();
-    network_message.version = conn->version;
+    network_message.version   = conn->version;
+    network_message.sequence  = conn->sequence;
 
     if (!pb_encode_ex(&stream, NetworkMessage_fields, &network_message, PB_ENCODE_DELIMITED)) {
         net_switch_log("Encoding failed: %s\n", PB_GET_ERROR(&stream));
@@ -747,6 +757,8 @@ ns_send_control(NSCONN *conn, const MessageType type) {
         pb_release(NetworkMessage_fields, &network_message);
         return -1;
     }
+    /* Increment the sequence number */
+    seq_increment(conn);
 
     /* Stats */
     conn->stats.total_tx_packets++;
@@ -927,12 +939,13 @@ get_data_packet_info(const netpkt_t *packet, const uint8_t *my_mac) {
     return packet_info;
 }
 
-bool fd_valid(const int fd)
+bool
+fd_valid(const int fd)
 {
 #ifdef _WIN32
     int error_code;
     int error_code_size = sizeof(error_code);
-    getsockopt(fd, SOL_SOCKET, SO_ERROR, (char*)&error_code, &error_code_size);
+    getsockopt(fd, SOL_SOCKET, SO_ERROR, (char *) &error_code, &error_code_size);
     if (error_code == WSAENOTSOCK) {
         return false;
     }
@@ -944,5 +957,17 @@ bool fd_valid(const int fd)
     /* All other values will be a valid fd */
     return true;
 #endif
+}
 
+bool
+seq_increment(NSCONN *conn)
+{
+    if(conn == NULL) {
+        return false;
+    }
+    conn->sequence++;
+    if (conn->sequence == 0) {
+        conn->sequence = 1;
+    }
+    return true;
 }
