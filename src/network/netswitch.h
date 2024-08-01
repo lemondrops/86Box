@@ -141,6 +141,7 @@ struct nsconn {
     uint32_t           client_id;
     uint8_t            mac_addr[6];
     uint16_t           sequence;
+    uint16_t           remote_sequence;
     uint8_t            version;
     uint8_t            switch_type;
     ns_client_state_t  client_state;
@@ -277,6 +278,9 @@ data_packet_info_t get_data_packet_info(const netpkt_t *packet, const uint8_t *m
 
 /* Checks for a valid file descriptor */
 bool fd_valid(int fd);
+
+/* Wrapping increment for the sequence number */
+bool seq_increment(NSCONN *conn);
 
 #ifdef ENABLE_NET_SWITCH_LOG
 static void
