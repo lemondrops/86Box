@@ -639,10 +639,6 @@ exit_pause(void)
 void
 plat_pause(int p)
 {
-    static wchar_t oldtitle[512];
-    wchar_t        title[1024];
-    wchar_t        paused_msg[512];
-
     if (!cpu_thread_running && p == 1) {
         p = 2;
     }
@@ -672,14 +668,6 @@ plat_pause(int p)
     if (p) {
         if (mouse_capture)
             plat_mouse_capture(0);
-
-        wcsncpy(oldtitle, ui_window_title(NULL), sizeof_w(oldtitle) - 1);
-        wcscpy(title, oldtitle);
-        paused_msg[QObject::tr(" - PAUSED").toWCharArray(paused_msg)] = 0;
-        wcscat(title, paused_msg);
-        ui_window_title(title);
-    } else {
-        ui_window_title(oldtitle);
     }
 
 #ifdef DISCORD
