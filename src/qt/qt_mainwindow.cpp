@@ -1503,7 +1503,7 @@ MainWindow::on_actionFullscreen_triggered()
 void
 MainWindow::getTitle_(wchar_t *title)
 {
-    this->windowTitle().toWCharArray(title);
+    toolbar_label->text().toWCharArray(title);
 }
 
 void
