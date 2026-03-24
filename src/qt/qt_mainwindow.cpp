@@ -1501,13 +1501,13 @@ MainWindow::on_actionFullscreen_triggered()
 }
 
 void
-MainWindow::getTitle_(wchar_t *title)
+MainWindow::getTitle_(char *title)
 {
-    toolbar_label->text().toWCharArray(title);
+    title = toolbar_label->text().toUtf8().data();
 }
 
 void
-MainWindow::getTitle(wchar_t *title)
+MainWindow::getTitle(char *title)
 {
     if (QThread::currentThread() == this->thread()) {
         getTitle_(title);

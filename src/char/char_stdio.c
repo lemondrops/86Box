@@ -281,7 +281,7 @@ char_stdio_init(const device_t *info)
         char_stdio_log(dev->log, "Windows console already claimed\n");
 
         snprintf(msg, sizeof(msg), "%s: Only one virtual console can be used on Windows", dev->port->name);
-        ui_msgbox(MBX_INFO | MBX_ANSI, msg);
+        ui_msgbox(MBX_INFO, msg);
 
         dev->fd_in = dev->fd_out = INVALID_HANDLE_VALUE;
         char_update_status(dev->port);
@@ -355,7 +355,7 @@ char_stdio_init(const device_t *info)
 
                         if (mode == CHAR_STDIO_MODE_PTY) {
                             snprintf(msg, sizeof(msg), "%s: Attached to %s", dev->port->name, pty);
-                            ui_msgbox(MBX_INFO | MBX_ANSI, msg);
+                            ui_msgbox(MBX_INFO, msg);
                         } else {
                             /* Build environment variables. */
                             static const char *pipe_cmd = "PIPECMD="
@@ -415,7 +415,7 @@ char_stdio_init(const device_t *info)
             char_stdio_log(dev->log, "posix_openpt failed (%d)\n", err);
 errmsg:
             snprintf(msg, sizeof(msg), "%s: Could not create pseudoterminal: %s", dev->port->name, strerror(err));
-            ui_msgbox(MBX_ERROR | MBX_ANSI, msg);
+            ui_msgbox(MBX_ERROR, msg);
             close(dev->fd_out);
             dev->fd_out = -1;
         }
