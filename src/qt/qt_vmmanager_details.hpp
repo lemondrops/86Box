@@ -31,7 +31,7 @@ class VMManagerDetails : public QWidget {
     Q_OBJECT
 
 public:
-    explicit VMManagerDetails(QWidget *parent = nullptr);
+    explicit VMManagerDetails(QWidget *parent = nullptr, QObject *vmm = nullptr);
 
     ~VMManagerDetails() override;
 
