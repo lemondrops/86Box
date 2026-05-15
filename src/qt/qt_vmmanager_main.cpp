@@ -395,7 +395,7 @@ illegal_chars:
     });
 
     // Initial default details view
-    vm_details = new VMManagerDetails(ui->detailsArea);
+    vm_details = new VMManagerDetails(ui->detailsArea, this);
     ui->detailsArea->layout()->addWidget(vm_details);
     const QItemSelectionModel *selection_model = ui->listView->selectionModel();
 
