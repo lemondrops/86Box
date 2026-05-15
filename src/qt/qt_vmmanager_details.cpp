@@ -23,6 +23,7 @@ extern "C" {
 #include "qt_preferences.hpp"
 #include "qt_util.hpp"
 #include "qt_vmmanager_details.hpp"
+#include "qt_vmmanager_main.hpp"
 #include "ui_qt_vmmanager_details.h"
 
 #define TOOLBUTTON_STYLESHEET_LIGHT "QToolButton {background: transparent; border: none; padding: 5px} QToolButton:hover {background: palette(midlight)} QToolButton:pressed {background: palette(mid)}"
@@ -37,7 +38,7 @@ extern "C" {
 
 using namespace VMManager;
 
-VMManagerDetails::VMManagerDetails(QWidget *parent)
+VMManagerDetails::VMManagerDetails(QWidget *parent, QObject *vmm)
     : QWidget(parent)
     , ui(new Ui::VMManagerDetails)
 {
@@ -123,6 +124,9 @@ VMManagerDetails::VMManagerDetails(QWidget *parent)
     pauseIcon = QIcon(":/menuicons/qt/icons/pause.ico");
     runIcon   = QIcon(":/menuicons/qt/icons/run.ico");
 
+    ui->welcomeScreenImage->setPixmap(QIcon(":/settings/qt/icons/86Box-gray.ico").pixmap(QSize(128, 128)));
+    connect(ui->welcomeScreenText, &QLabel::linkActivated, qobject_cast<VMManagerMain *>(vmm), &VMManagerMain::newMachineWizard);
+
     // Experimenting
     startPauseButton = new QToolButton();
     startPauseButton->setIcon(runIcon);
@@ -154,6 +158,10 @@ VMManagerDetails::VMManagerDetails(QWidget *parent)
     ui->toolButtonHolder->layout()->addWidget(configureButton);
 
     ui->notesTextEdit->setEnabled(false);
+
+    ui->welcomeScreen->setVisible(true);
+    ui->systemLabel->setVisible(false);
+    ui->LeftRight->setVisible(false);
 
 #ifdef Q_OS_WINDOWS
     connect(this, &VMManagerDetails::styleUpdated, systemSection, &VMManagerDetailSection::updateStyle);
@@ -218,6 +226,10 @@ VMManagerDetails::reset()
     configureButton->setEnabled(false);
     cadButton->setEnabled(false);
 
+    ui->welcomeScreen->setVisible(true);
+    ui->systemLabel->setVisible(false);
+    ui->LeftRight->setVisible(false);
+
     ui->systemLabel->setText(tr("No Machines Found!"));
     ui->systemLabel->setStyleSheet("");
     ui->statusLabel->setText("");
@@ -270,6 +282,10 @@ VMManagerDetails::updateData(VMManagerSystem *passed_sysconfig)
     }
     startPauseButton->setEnabled(true);
     configureButton->setEnabled(true);
+
+    ui->welcomeScreen->setVisible(false);
+    ui->systemLabel->setVisible(true);
+    ui->LeftRight->setVisible(true);
 
     updateConfig(passed_sysconfig);
     updateScreenshots(passed_sysconfig);
