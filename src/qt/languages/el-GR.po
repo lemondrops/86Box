@@ -2755,8 +2755,8 @@ msgstr "[Γενικό] 1998 (5400 RPM)"
 msgid "[Generic] 2000 (7200 RPM)"
 msgstr "[Γενικό] 2000 (7200 RPM)"
 
-msgid "IBM 8514/A clone (ISA)"
-msgstr "Κλώνος IBM 8514/A (ISA)"
+msgid "IBM 8514/A clone"
+msgstr "Κλώνος IBM 8514/A"
 
 msgid "Vendor"
 msgstr "Πωλητής"

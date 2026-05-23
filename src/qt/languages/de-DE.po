@@ -2719,8 +2719,8 @@ msgstr "[Generisch] 1998 (5400 U/min)"
 msgid "[Generic] 2000 (7200 RPM)"
 msgstr "[Generisch] 2000 (7200 U/min)"
 
-msgid "IBM 8514/A clone (ISA)"
-msgstr "IBM 8514/A-Klon (ISA)"
+msgid "IBM 8514/A clone"
+msgstr "IBM 8514/A-Klon"
 
 msgid "Vendor"
 msgstr "Hersteller"

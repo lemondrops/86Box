@@ -2720,8 +2720,8 @@ msgstr "[Všeobecný] 1998 (5400 ot./m)"
 msgid "[Generic] 2000 (7200 RPM)"
 msgstr "[Všeobecný] 2000 (7200 ot./m)"
 
-msgid "IBM 8514/A clone (ISA)"
-msgstr "Klon IBM 8514/A (ISA)"
+msgid "IBM 8514/A clone"
+msgstr "Klon IBM 8514/A"
 
 msgid "Vendor"
 msgstr "Výrobca"

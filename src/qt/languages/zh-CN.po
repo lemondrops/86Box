@@ -2728,8 +2728,8 @@ msgstr "[通用] 1998 (5400转)"
 msgid "[Generic] 2000 (7200 RPM)"
 msgstr "[通用] 2000 (7200转)"
 
-msgid "IBM 8514/A clone (ISA)"
-msgstr "IBM 8514/A 克隆 (ISA)"
+msgid "IBM 8514/A clone"
+msgstr "IBM 8514/A 克隆"
 
 msgid "Vendor"
 msgstr "制造商"

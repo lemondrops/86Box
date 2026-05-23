@@ -2722,8 +2722,8 @@ msgstr "[Generični] (5400 okr./min)"
 msgid "[Generic] 2000 (7200 RPM)"
 msgstr "[Generični] (7200 okr./min)"
 
-msgid "IBM 8514/A clone (ISA)"
-msgstr "Klon IBM 8514/A (ISA)"
+msgid "IBM 8514/A clone"
+msgstr "Klon IBM 8514/A"
 
 msgid "Vendor"
 msgstr "Proizvođać"
