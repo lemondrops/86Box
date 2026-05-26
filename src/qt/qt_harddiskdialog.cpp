@@ -375,6 +375,14 @@ HarddiskDialog::onCreateNewFile()
         return;
     }
 
+    FILE *fp = plat_fopen(fileNameUtf8.data(), "rb");
+    if (fp != NULL) {
+        fclose(fp);
+        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Disk image file already exists"), tr("The selected file will be overwritten. Are you sure you want to use it?"), QMessageBox::Yes | QMessageBox::No);
+        if (btn == QMessageBox::No)
+            return;
+    }
+
     for (auto &curObject : children()) {
         if (qobject_cast<QWidget *>(curObject))
             qobject_cast<QWidget *>(curObject)->setDisabled(true);
@@ -583,14 +591,6 @@ void
 HarddiskDialog::onExistingFileSelected(const QString &fileName, bool precheck)
 {
     QByteArray fileNameUtf8 = fileName.toUtf8();
-
-    FILE *fp = plat_fopen(fileNameUtf8.data(), "rb");
-    if (fp != NULL) {
-        fclose(fp);
-        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Disk image file already exists"), tr("The selected file will be overwritten. Are you sure you want to use it?"), QMessageBox::Yes | QMessageBox::No);
-        if (btn == QMessageBox::No)
-            return;
-    }
 
     uint64_t size        = 0;
     uint32_t sector_size = 0;
