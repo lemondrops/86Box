@@ -3075,3 +3075,21 @@ msgstr "Устройство вывода звука:"
 
 msgid "System Default"
 msgstr "Системный"
+
+msgid "Unable to open image or folder \"%s\"."
+msgstr "Невозможно открыть образ или папку «%s»."
+
+msgid "Unable to open cue sheet \"%s\"."
+msgstr "Невозможно открыть файл CUE «%s»."
+
+msgid "Unable to open MDS file \"%s\"."
+msgstr "Невозможно открыть файл MDS «%s»."
+
+msgid "Unable to load CD-ROM image \"%s\"."
+msgstr "Невозможно загрузить образ CD-ROM «%s»."
+
+msgid "Unable to load image \"%s\": %1 is missing, which is required for Daemon Tools MDS v2 and MDX image support."
+msgstr "Невозможно загрузить образ «%s»: отсутствеут библитека %1, необходимая для поддержки образов Daemon Tools MDS v2 и MDX."
+
+msgid "The DVD image \"%s\" has been inserted into a drive that does not support DVD media and will be ignored."
+msgstr "Образ DVD «%s» был вставлен в дисковод, не поддерживающий DVD, и будет проигнорирован."
