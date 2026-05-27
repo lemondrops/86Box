@@ -1447,11 +1447,32 @@ msgstr "El archivo selecionado será sobreescrito. ¿Está seguro de querer usar
 msgid "Unsupported disk image"
 msgstr "Imagen de disco no soportada"
 
-msgid "Overwrite"
-msgstr "Sobreescribir"
+msgid "Unable to read device"
+msgstr ""
 
-msgid "Don't overwrite"
-msgstr "No sobreescribir"
+msgid "Could not determine block device size. Make sure you have permission to access this device."
+msgstr ""
+
+msgid "Device too large"
+msgstr ""
+
+msgid "Block device is too large to be used as a hard disk."
+msgstr ""
+
+msgid "Block device detected"
+msgstr ""
+
+msgid "Detected block device: %1\nSize: %2 MB\nGeometry: %3 cylinders, %4 heads, %5 sectors"
+msgstr ""
+
+msgid "Failed to write the disk image."
+msgstr ""
+
+msgid "Failed to read the disk image."
+msgstr ""
+
+msgid "The disk image has been successfully created."
+msgstr ""
 
 msgid "Raw image"
 msgstr "Imagen plana"
@@ -1504,8 +1525,8 @@ msgstr "Archivos VHD"
 msgid "Select the parent VHD"
 msgstr "Seleccione el VHD padre"
 
-msgid "This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
-msgstr "Esto puede deberse a que la imagen padre se modificó después de que la imagen diferencial se crease.\n\nTambién puede ocurrir si las imágenes fueron movidas o copiadas, o por un fallo en el programa que creó este disco.\n\n¿Quiere corregir los registros de tiempo?"
+msgid "Parent and child disk timestamps do not match. This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
+msgstr "Las marcas de tiempo del padre e hijo no coinciden. Esto puede deberse a que la imagen padre se modificó después de que la imagen diferencial se crease.\n\nTambién puede ocurrir si las imágenes fueron movidas o copiadas, o por un fallo en el programa que creó este disco.\n\n¿Quiere corregir los registros de tiempo?"
 
 msgid "Parent and child disk timestamps do not match"
 msgstr "Las marcas de tiempo del padre e hijo no coinciden"

@@ -1450,11 +1450,32 @@ msgstr "Die ausgewählte Datei wird überschrieben. Soll diese Datei genutzen we
 msgid "Unsupported disk image"
 msgstr "Nicht unterstütztes Festplattenabbild"
 
-msgid "Overwrite"
-msgstr "Überschreiben"
+msgid "Unable to read device"
+msgstr ""
 
-msgid "Don't overwrite"
-msgstr "Nicht überschreiben"
+msgid "Could not determine block device size. Make sure you have permission to access this device."
+msgstr ""
+
+msgid "Device too large"
+msgstr ""
+
+msgid "Block device is too large to be used as a hard disk."
+msgstr ""
+
+msgid "Block device detected"
+msgstr ""
+
+msgid "Detected block device: %1\nSize: %2 MB\nGeometry: %3 cylinders, %4 heads, %5 sectors"
+msgstr ""
+
+msgid "Failed to write the disk image."
+msgstr ""
+
+msgid "Failed to read the disk image."
+msgstr ""
+
+msgid "The disk image has been successfully created."
+msgstr ""
 
 msgid "Raw image"
 msgstr "Rohdatenabbilder"
@@ -1507,8 +1528,8 @@ msgstr "VHD-Dateien"
 msgid "Select the parent VHD"
 msgstr "Eltern-VHD-Datei bitte auswählen"
 
-msgid "This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
-msgstr "Dies bedeutet, dass das Elternabbild nach der Erstellung des differenzierenden Abbild erzeugt wurde.\n\nDies kann auch passieren, falls die Abbild-Dateien verschoben oder kopiert wurden. Ebenso kann auch dies durch einen Bug im Programm, welches das Abbild erstellt hat, passieren.\n\nSoll der Zeitstempel korrigiert werden?"
+msgid "Parent and child disk timestamps do not match. This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
+msgstr "Die Zeitstempel der Eltern- und der Kindesplatte stimmen nicht überein. Dies bedeutet, dass das Elternabbild nach der Erstellung des differenzierenden Abbild erzeugt wurde.\n\nDies kann auch passieren, falls die Abbild-Dateien verschoben oder kopiert wurden. Ebenso kann auch dies durch einen Bug im Programm, welches das Abbild erstellt hat, passieren.\n\nSoll der Zeitstempel korrigiert werden?"
 
 msgid "Parent and child disk timestamps do not match"
 msgstr "Die Zeitstempel der Eltern- und der Kindesplatte stimmen nicht überein"

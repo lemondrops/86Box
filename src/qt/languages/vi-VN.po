@@ -1443,11 +1443,32 @@ msgstr "File được chọn sẽ bị ghi đè lên. Bạn có chắc muốn ch
 msgid "Unsupported disk image"
 msgstr "File ảnh đĩa không được hỗ trợ"
 
-msgid "Overwrite"
-msgstr "Có ghi đè"
+msgid "Unable to read device"
+msgstr ""
 
-msgid "Don't overwrite"
-msgstr "Không ghi đè"
+msgid "Could not determine block device size. Make sure you have permission to access this device."
+msgstr ""
+
+msgid "Device too large"
+msgstr ""
+
+msgid "Block device is too large to be used as a hard disk."
+msgstr ""
+
+msgid "Block device detected"
+msgstr ""
+
+msgid "Detected block device: %1\nSize: %2 MB\nGeometry: %3 cylinders, %4 heads, %5 sectors"
+msgstr ""
+
+msgid "Failed to write the disk image."
+msgstr ""
+
+msgid "Failed to read the disk image."
+msgstr ""
+
+msgid "The disk image has been successfully created."
+msgstr ""
 
 msgid "Raw image"
 msgstr "Ảnh đĩa thô"
@@ -1500,8 +1521,8 @@ msgstr "File VHD"
 msgid "Select the parent VHD"
 msgstr "Chọn file VHD cha (parent)"
 
-msgid "This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
-msgstr "Ở đây tức là ảnh đĩa cha (parent) có thể đã bị chỉnh sửa sau khi ảnh đĩa đa chủng (differencing image) được tạo ra.\n\nCũng có thể do ảnh đĩa bị chuyển đi hay bị copy, hoặc do bug/lỗi của phần mềm tạo ảnh đĩa gây ra.\n\nBạn có muốn sửa lại mốc thời gian (timestamp) không?"
+msgid "Parent and child disk timestamps do not match. This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
+msgstr "Mốc timestamp của đĩa con (child) và đĩa cha (parent) không trùng khớp. Ở đây tức là ảnh đĩa cha (parent) có thể đã bị chỉnh sửa sau khi ảnh đĩa đa chủng (differencing image) được tạo ra.\n\nCũng có thể do ảnh đĩa bị chuyển đi hay bị copy, hoặc do bug/lỗi của phần mềm tạo ảnh đĩa gây ra.\n\nBạn có muốn sửa lại mốc thời gian (timestamp) không?"
 
 msgid "Parent and child disk timestamps do not match"
 msgstr "Mốc timestamp của đĩa con (child) và đĩa cha (parent) không trùng khớp"

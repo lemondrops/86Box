@@ -1452,11 +1452,32 @@ msgstr "Zvolený soubor bude přepsán. Opravdu jej chcete použít?"
 msgid "Unsupported disk image"
 msgstr "Nepodporovaný obraz disku"
 
-msgid "Overwrite"
-msgstr "Přepsat"
+msgid "Unable to read device"
+msgstr ""
 
-msgid "Don't overwrite"
-msgstr "Nepřepisovat"
+msgid "Could not determine block device size. Make sure you have permission to access this device."
+msgstr ""
+
+msgid "Device too large"
+msgstr ""
+
+msgid "Block device is too large to be used as a hard disk."
+msgstr ""
+
+msgid "Block device detected"
+msgstr ""
+
+msgid "Detected block device: %1\nSize: %2 MB\nGeometry: %3 cylinders, %4 heads, %5 sectors"
+msgstr ""
+
+msgid "Failed to write the disk image."
+msgstr ""
+
+msgid "Failed to read the disk image."
+msgstr ""
+
+msgid "The disk image has been successfully created."
+msgstr ""
 
 msgid "Raw image"
 msgstr "Surový obraz"
@@ -1509,8 +1530,8 @@ msgstr "Soubory VHD"
 msgid "Select the parent VHD"
 msgstr "Vyberte nadřazený VHD disk"
 
-msgid "This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
-msgstr "Toto může znamenat, že se obsahy nadřazeného disku změnily po vytvoření rozdílového disku.\n\nTato chyba také může nastat, pokud byl obraz disku kopírován nebo přesunut, nebo kvůli chybě v programu, který jej vytvořil.\n\nChcete časová razítka opravit?"
+msgid "Parent and child disk timestamps do not match. This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
+msgstr "Časová razítka nadřazeného a podřazeného disku nesouhlasí. Toto může znamenat, že se obsahy nadřazeného disku změnily po vytvoření rozdílového disku.\n\nTato chyba také může nastat, pokud byl obraz disku kopírován nebo přesunut, nebo kvůli chybě v programu, který jej vytvořil.\n\nChcete časová razítka opravit?"
 
 msgid "Parent and child disk timestamps do not match"
 msgstr "Časová razítka nadřazeného a podřazeného disku nesouhlasí"

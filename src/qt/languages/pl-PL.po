@@ -1453,11 +1453,32 @@ msgstr "Wybrany plik zostanie nadpisany. Czy na pewno chcesz użyć tego pliku?"
 msgid "Unsupported disk image"
 msgstr "Niewspierany obraz dysku"
 
-msgid "Overwrite"
-msgstr "Nadpisz"
+msgid "Unable to read device"
+msgstr ""
 
-msgid "Don't overwrite"
-msgstr "Nie nadpisuj"
+msgid "Could not determine block device size. Make sure you have permission to access this device."
+msgstr ""
+
+msgid "Device too large"
+msgstr ""
+
+msgid "Block device is too large to be used as a hard disk."
+msgstr ""
+
+msgid "Block device detected"
+msgstr ""
+
+msgid "Detected block device: %1\nSize: %2 MB\nGeometry: %3 cylinders, %4 heads, %5 sectors"
+msgstr ""
+
+msgid "Failed to write the disk image."
+msgstr ""
+
+msgid "Failed to read the disk image."
+msgstr ""
+
+msgid "The disk image has been successfully created."
+msgstr ""
 
 msgid "Raw image"
 msgstr "Surowy obraz"
@@ -1510,8 +1531,8 @@ msgstr "Pliki VHD"
 msgid "Select the parent VHD"
 msgstr "Wybierz nadrzędny plik VHD"
 
-msgid "This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
-msgstr "Może to oznaczać, że obraz nadrzędny został zmodyfikowany po utworzeniu obrazu różnicowego.\n\nMoże się to również zdarzyć, jeśli pliki obrazów zostały przeniesione lub skopiowane, lub wystąpił błąd w programie, który utworzył ten dysk.\n\nCzy chcesz naprawić sygnatury czasowe?"
+msgid "Parent and child disk timestamps do not match. This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
+msgstr "Sygnatury czasowe dysku nadrzędnego i podrzędnego nie zgadzają się. Może to oznaczać, że obraz nadrzędny został zmodyfikowany po utworzeniu obrazu różnicowego.\n\nMoże się to również zdarzyć, jeśli pliki obrazów zostały przeniesione lub skopiowane, lub wystąpił błąd w programie, który utworzył ten dysk.\n\nCzy chcesz naprawić sygnatury czasowe?"
 
 msgid "Parent and child disk timestamps do not match"
 msgstr "Sygnatury czasowe dysku nadrzędnego i podrzędnego nie zgadzają się"

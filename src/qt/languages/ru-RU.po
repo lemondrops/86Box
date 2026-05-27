@@ -1465,11 +1465,32 @@ msgstr "Выбранный файл будет перезаписан. Вы ув
 msgid "Unsupported disk image"
 msgstr "Неподдерживаемый образ диска"
 
-msgid "Overwrite"
-msgstr "Перезаписать"
+msgid "Unable to read device"
+msgstr "Невозможно прочитать устройство"
 
-msgid "Don't overwrite"
-msgstr "Не перезаписывать"
+msgid "Could not determine block device size. Make sure you have permission to access this device."
+msgstr "Не удалось определить размер блочного устройства. Убедитесть, что у вас есть разрешение на доступ к этому устройству."
+
+msgid "Device too large"
+msgstr "Устройство слишком большое"
+
+msgid "Block device is too large to be used as a hard disk."
+msgstr "Блочное устройство слишком большое для использования его в качестве жёсткого диска."
+
+msgid "Block device detected"
+msgstr "Обнаружено блочное устройство"
+
+msgid "Detected block device: %1\nSize: %2 MB\nGeometry: %3 cylinders, %4 heads, %5 sectors"
+msgstr "Обнаружено блочное устройство: %1\nРазмер: %2 МБ\nГеометрия: %3 цилиндра, %4 головок, %5 секторов"
+
+msgid "Failed to write the disk image."
+msgstr "Не удалось записать образ диска."
+
+msgid "Failed to read the disk image."
+msgstr "Не удалось считать образ диска."
+
+msgid "The disk image has been successfully created."
+msgstr "Образ диска был успешно создан."
 
 msgid "Raw image"
 msgstr "Сырой образ"
@@ -1522,8 +1543,8 @@ msgstr "Файлы VHD"
 msgid "Select the parent VHD"
 msgstr "Выберите родительский VHD"
 
-msgid "This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
-msgstr "Это может означать, что родительский образ был изменён после того, как был создан дифференцированный образ.\n\nЭто также может произойти, если файлы образа были перемещены или скопированы, или из-за ошибки в программе, создавшей этот диск.\n\nВы хотите исправить временные метки?"
+msgid "Parent and child disk timestamps do not match. This could mean that the parent image was modified after the differencing image was created.\n\nIt can also happen if the image files were moved or copied, or by a bug in the program that created this disk.\n\nDo you want to fix the timestamps?"
+msgstr "Временные метки родительского и дочернего дисков не совпадают. Это может означать, что родительский образ был изменён после того, как был создан дифференцированный образ.\n\nЭто также может произойти, если файлы образа были перемещены или скопированы, или из-за ошибки в программе, создавшей этот диск.\n\nВы хотите исправить временные метки?"
 
 msgid "Parent and child disk timestamps do not match"
 msgstr "Временные метки родительского и дочернего дисков не совпадают"
