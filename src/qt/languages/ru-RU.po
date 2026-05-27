@@ -2677,32 +2677,77 @@ msgstr "Loopback-кабель"
 msgid "Serial Passthrough"
 msgstr "Проброс через последовательный порт"
 
-msgid "Passthrough Mode"
-msgstr "Режим проброса"
-
-msgid "Host Serial Device"
+msgid "Host serial device"
 msgstr "Последовательное устройство хоста"
 
-msgid "Name of pipe"
-msgstr "Название пайпа"
+msgid "Named Pipe"
+msgstr "Именованный канал"
 
-msgid "Data bits"
-msgstr "Биты данных"
+msgid "Output file"
+msgstr "Выходной файл"
 
-msgid "Stop bits"
-msgstr "Стоп-биты"
+msgid "Append to file if it exists"
+msgstr "Дописывать в конец существующего файла"
 
-msgid "Baud Rate of Passthrough"
-msgstr "Скорость передачи данных через канал"
+msgid "Input file"
+msgstr "Входной файл"
 
-msgid "Named Pipe (Server)"
-msgstr "Именованный пайп (Сервер)"
+msgid "Loop input file"
+msgstr "Закольцевать входной файл"
 
-msgid "Named Pipe (Client)"
-msgstr "Именованный пайп (Клиент)"
+msgid "Require STROBE signal"
+msgstr "Требовать сигнал STROBE"
 
-msgid "Host Serial Passthrough"
-msgstr "Последовательный порт хоста"
+msgid "Loopback Type"
+msgstr "Тип кабеля"
+
+msgid "Parallel cable"
+msgstr "LPT-кабель"
+
+msgid "Unidirectional (8-bit) / LapLink (4-bit)"
+msgstr "Однонаправленный (8 бит) / LapLink (4 бит)"
+
+msgid "Bidirectional (8-bit)"
+msgstr "Двунаправленный (8 бит)"
+
+msgid "Pipe path"
+msgstr "Путь к каналу"
+
+msgid "FIFO / terminal (*.*)|*.*"
+msgstr "FIFO / терминал"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Server"
+msgstr "Сервер"
+
+msgid "Client"
+msgstr "Клиент"
+
+msgid "Reconnect automatically"
+msgstr "Автоматически переподключаться"
+
+msgid "Use standard input/output"
+msgstr "Исполюзовать стандартный ввод/вывод"
+
+msgid "Create pseudoterminal"
+msgstr "Создать псевдо-терминал"
+
+msgid "Start terminal emulator"
+msgstr "Запустить эмулятор терминала"
+
+msgid "Run custom command"
+msgstr "Выполнить пользовательскую команду"
+
+msgid "Custom command"
+msgstr "Пользовательская команда"
+
+msgid "Run custom command in terminal"
+msgstr "Выполнять польз. команду в терминале"
+
+msgid "Virtual Console"
+msgstr "Виртуальная консоль"
 
 msgid "E&ject %1"
 msgstr "И&звлечь %1"
