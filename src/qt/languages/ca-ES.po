@@ -2362,20 +2362,47 @@ msgstr "Mida de la memòria EMS 2"
 msgid "Enable EMS"
 msgstr "Activa EMS"
 
-msgid "Enable EMS 1"
-msgstr "Activa EMS 1"
-
-msgid "Enable EMS 2"
-msgstr "Activa EMS 2"
-
 msgid "Address for > 2 MB"
 msgstr "Adreça per a > 2 MB"
 
 msgid "Frame Address"
 msgstr "Adreça del marc"
 
-msgid "USA"
-msgstr "EUA"
+msgid "English"
+msgstr ""
+
+msgid "English (US)"
+msgstr ""
+
+msgid "English (UK)"
+msgstr ""
+
+msgid "English (Canada)"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+msgid "Spanish"
+msgstr ""
+
+msgid "Swedish"
+msgstr ""
+
+msgid "Italian"
+msgstr ""
+
+msgid "Portuguese"
+msgstr ""
+
+msgid "Norwegian"
+msgstr ""
+
+msgid "Greek"
+msgstr ""
 
 msgid "Danish"
 msgstr "Danés"
@@ -2571,9 +2598,6 @@ msgstr "Escala de grisos"
 
 msgid "Color"
 msgstr "Color"
-
-msgid "U.S. English"
-msgstr "Anglès dels EUA"
 
 msgid "Scandinavian"
 msgstr "Escandinau"
@@ -3155,4 +3179,106 @@ msgid "%s: Virtual console already in use by %s"
 msgstr ""
 
 msgid "%s: Could not create terminal: %s"
+msgstr ""
+
+msgid "Auto-detect"
+msgstr ""
+
+msgid "Channel"
+msgstr ""
+
+msgid "Both Channels"
+msgstr ""
+
+msgid "Left Channel"
+msgstr ""
+
+msgid "Right Channel"
+msgstr ""
+
+msgid "Allow Flash BIOS Updates"
+msgstr ""
+
+msgid "Slot #"
+msgstr ""
+
+msgid "Parallel Port"
+msgstr ""
+
+msgid "Paper Size"
+msgstr ""
+
+msgid "Legal (sideways)"
+msgstr ""
+
+msgid "B4 (sideways)"
+msgstr ""
+
+msgid "Quality"
+msgstr ""
+
+msgid "Draft"
+msgstr ""
+
+msgid "(Near) Letter"
+msgstr ""
+
+msgid "Auto LF"
+msgstr ""
+
+msgid "Tandy PSSJ Clone"
+msgstr ""
+
+msgid "PC-CM (Color)"
+msgstr ""
+
+msgid "PC-MM (Monochrome)"
+msgstr ""
+
+msgid "White Monochrome"
+msgstr ""
+
+msgid "Hardware font"
+msgstr ""
+
+msgid "Diagnostic mode"
+msgstr ""
+
+msgid "CGA monitor"
+msgstr ""
+
+msgid "MDA monitor"
+msgstr ""
+
+msgid "Television"
+msgstr ""
+
+msgid "Invert LCD colors"
+msgstr ""
+
+msgid "LCD (CGA mode)"
+msgstr ""
+
+msgid "LCD (MDA mode)"
+msgstr ""
+
+msgid "Disabled (250h)"
+msgstr ""
+
+msgid "Enabled (350h)"
+msgstr ""
+
+msgid "Test mode"
+msgstr ""
+
+msgid "32 MB"
+msgstr ""
+
+msgid "64 MB"
+msgstr ""
+
+msgid "2048 MB"
+msgstr ""
+
+msgid "Refresh rate"
 msgstr ""

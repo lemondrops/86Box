@@ -132,3 +132,6 @@ msgstr[1] "%n disks"
 
 msgid "Color scheme"
 msgstr "Colour scheme"
+
+msgid "PC-CM (Color)"
+msgstr "PC-CM (Colour)"

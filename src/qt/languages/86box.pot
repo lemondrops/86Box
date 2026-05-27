@@ -2357,19 +2357,46 @@ msgstr ""
 msgid "Enable EMS"
 msgstr ""
 
-msgid "Enable EMS 1"
-msgstr ""
-
-msgid "Enable EMS 2"
-msgstr ""
-
 msgid "Address for > 2 MB"
 msgstr ""
 
 msgid "Frame Address"
 msgstr ""
 
-msgid "USA"
+msgid "English"
+msgstr ""
+
+msgid "English (US)"
+msgstr ""
+
+msgid "English (UK)"
+msgstr ""
+
+msgid "English (Canada)"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+msgid "Spanish"
+msgstr ""
+
+msgid "Swedish"
+msgstr ""
+
+msgid "Italian"
+msgstr ""
+
+msgid "Portuguese"
+msgstr ""
+
+msgid "Norwegian"
+msgstr ""
+
+msgid "Greek"
 msgstr ""
 
 msgid "Danish"
@@ -2565,9 +2592,6 @@ msgid "Grayscale"
 msgstr ""
 
 msgid "Color"
-msgstr ""
-
-msgid "U.S. English"
 msgstr ""
 
 msgid "Scandinavian"
