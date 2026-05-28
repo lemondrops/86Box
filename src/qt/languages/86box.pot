@@ -3135,18 +3135,6 @@ msgstr ""
 msgid "Use EDC/ECC emulation"
 msgstr ""
 
-msgid "Server"
-msgstr ""
-
-msgid "Client"
-msgstr ""
-
-msgid "Unidirectional (8-bit) / LapLink (4-bit)"
-msgstr ""
-
-msgid "Bidirectional (8-bit)"
-msgstr ""
-
 msgid "DirectParallel FAST"
 msgstr ""
 
@@ -3168,27 +3156,6 @@ msgstr ""
 msgid "US English"
 msgstr ""
 
-msgid "Greek"
-msgstr ""
-
-msgid "English"
-msgstr ""
-
-msgid "German"
-msgstr ""
-
-msgid "French"
-msgstr ""
-
-msgid "Spanish"
-msgstr ""
-
-msgid "Swedish"
-msgstr ""
-
-msgid "Italian"
-msgstr ""
-
 msgid "Diagnostic mode"
 msgstr ""
 
@@ -3205,12 +3172,6 @@ msgid "RGB"
 msgstr ""
 
 msgid "White Monochrome"
-msgstr ""
-
-msgid "Portuguese"
-msgstr ""
-
-msgid "Norwegian"
 msgstr ""
 
 msgid "LCD (CGA mode)"
@@ -3282,63 +3243,6 @@ msgstr ""
 msgid "Text files (*.txt *.log)|*.txt,*.log"
 msgstr ""
 
-msgid "Output file"
-msgstr ""
-
-msgid "Append to file if it exists"
-msgstr ""
-
-msgid "Input file"
-msgstr ""
-
-msgid "Loop input file"
-msgstr ""
-
-msgid "Require STROBE signal"
-msgstr ""
-
-msgid "Loopback Type"
-msgstr ""
-
-msgid "Parallel cable"
-msgstr ""
-
-msgid "Pipe path"
-msgstr ""
-
-msgid "FIFO / terminal (*.*)|*.*"
-msgstr ""
-
-msgid "Mode"
-msgstr ""
-
-msgid "Reconnect automatically"
-msgstr ""
-
-msgid "Use standard input/output"
-msgstr ""
-
-msgid "Create pseudoterminal"
-msgstr ""
-
-msgid "Start terminal emulator"
-msgstr ""
-
-msgid "Run custom command"
-msgstr ""
-
-msgid "Custom command"
-msgstr ""
-
-msgid "Run custom command in terminal"
-msgstr ""
-
-msgid "Virtual Console"
-msgstr ""
-
-msgid "Host serial device"
-msgstr ""
-
 msgid "Channel"
 msgstr ""
 
@@ -3364,15 +3268,6 @@ msgid "Tandy PSSJ Clone"
 msgstr ""
 
 msgid "Invert LCD colors"
-msgstr ""
-
-msgid "English (US)"
-msgstr ""
-
-msgid "English (UK)"
-msgstr ""
-
-msgid "English (Canada)"
 msgstr ""
 
 msgid "32 MB"
