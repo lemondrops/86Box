@@ -3154,18 +3154,6 @@ msgstr "Výstupní zvukové zařízení:"
 msgid "System Default"
 msgstr "Výchozí nastavení systému"
 
-msgid "Server"
-msgstr ""
-
-msgid "Client"
-msgstr ""
-
-msgid "Unidirectional (8-bit) / LapLink (4-bit)"
-msgstr ""
-
-msgid "Bidirectional (8-bit)"
-msgstr ""
-
 msgid "DirectParallel FAST"
 msgstr ""
 
@@ -3187,27 +3175,6 @@ msgstr ""
 msgid "US English"
 msgstr ""
 
-msgid "Greek"
-msgstr ""
-
-msgid "English"
-msgstr ""
-
-msgid "German"
-msgstr ""
-
-msgid "French"
-msgstr ""
-
-msgid "Spanish"
-msgstr ""
-
-msgid "Swedish"
-msgstr ""
-
-msgid "Italian"
-msgstr ""
-
 msgid "Diagnostic mode"
 msgstr ""
 
@@ -3224,12 +3191,6 @@ msgid "RGB"
 msgstr ""
 
 msgid "White Monochrome"
-msgstr ""
-
-msgid "Portuguese"
-msgstr ""
-
-msgid "Norwegian"
 msgstr ""
 
 msgid "LCD (CGA mode)"
@@ -3301,63 +3262,6 @@ msgstr ""
 msgid "Text files (*.txt *.log)|*.txt,*.log"
 msgstr ""
 
-msgid "Output file"
-msgstr ""
-
-msgid "Append to file if it exists"
-msgstr ""
-
-msgid "Input file"
-msgstr ""
-
-msgid "Loop input file"
-msgstr ""
-
-msgid "Require STROBE signal"
-msgstr ""
-
-msgid "Loopback Type"
-msgstr ""
-
-msgid "Parallel cable"
-msgstr ""
-
-msgid "Pipe path"
-msgstr ""
-
-msgid "FIFO / terminal (*.*)|*.*"
-msgstr ""
-
-msgid "Mode"
-msgstr ""
-
-msgid "Reconnect automatically"
-msgstr ""
-
-msgid "Use standard input/output"
-msgstr ""
-
-msgid "Create pseudoterminal"
-msgstr ""
-
-msgid "Start terminal emulator"
-msgstr ""
-
-msgid "Run custom command"
-msgstr ""
-
-msgid "Custom command"
-msgstr ""
-
-msgid "Run custom command in terminal"
-msgstr ""
-
-msgid "Virtual Console"
-msgstr ""
-
-msgid "Host serial device"
-msgstr ""
-
 msgid "Channel"
 msgstr ""
 
@@ -3383,15 +3287,6 @@ msgid "Tandy PSSJ Clone"
 msgstr ""
 
 msgid "Invert LCD colors"
-msgstr ""
-
-msgid "English (US)"
-msgstr ""
-
-msgid "English (UK)"
-msgstr ""
-
-msgid "English (Canada)"
 msgstr ""
 
 msgid "32 MB"
@@ -3439,104 +3334,9 @@ msgstr ""
 msgid "%s: Could not create terminal: %s"
 msgstr ""
 
-msgid "Auto-detect"
-msgstr ""
-
-msgid "Channel"
-msgstr ""
-
-msgid "Both Channels"
-msgstr ""
-
-msgid "Left Channel"
-msgstr ""
-
-msgid "Right Channel"
-msgstr ""
-
-msgid "Allow Flash BIOS Updates"
-msgstr ""
-
-msgid "Slot #"
-msgstr ""
-
-msgid "Parallel Port"
-msgstr ""
-
-msgid "Paper Size"
-msgstr ""
-
-msgid "Legal (sideways)"
-msgstr ""
-
-msgid "B4 (sideways)"
-msgstr ""
-
-msgid "Quality"
-msgstr ""
-
-msgid "Draft"
-msgstr ""
-
-msgid "(Near) Letter"
-msgstr ""
-
-msgid "Auto LF"
-msgstr ""
-
-msgid "Tandy PSSJ Clone"
-msgstr ""
-
-msgid "PC-CM (Color)"
-msgstr ""
-
-msgid "PC-MM (Monochrome)"
-msgstr ""
-
-msgid "White Monochrome"
-msgstr ""
-
 msgid "Hardware font"
-msgstr ""
-
-msgid "Diagnostic mode"
-msgstr ""
-
-msgid "CGA monitor"
-msgstr ""
-
-msgid "MDA monitor"
-msgstr ""
-
-msgid "Television"
-msgstr ""
-
-msgid "Invert LCD colors"
-msgstr ""
-
-msgid "LCD (CGA mode)"
-msgstr ""
-
-msgid "LCD (MDA mode)"
-msgstr ""
-
-msgid "Disabled (250h)"
-msgstr ""
-
-msgid "Enabled (350h)"
 msgstr ""
 
 msgid "Test mode"
 msgstr ""
 
-msgid "32 MB"
-msgstr ""
-
-msgid "64 MB"
-msgstr ""
-
-msgid "2048 MB"
-msgstr ""
-
-msgid "Refresh rate"
-msgstr ""
